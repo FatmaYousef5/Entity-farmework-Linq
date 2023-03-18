@@ -1,0 +1,39 @@
+namespace FProject
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class Import_Permission
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Perm_no { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? Perm_Date { get; set; }
+
+        public int? W_Id { get; set; }
+
+        public int? Goods_Id { get; set; }
+
+        [Column("Q/G")]
+        public int? Q_G { get; set; }
+
+        public int? Supp_Id { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? Produc_Date { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? Expire_Date { get; set; }
+
+        public virtual Good Good { get; set; }
+
+        public virtual Supplier Supplier { get; set; }
+
+        public virtual Warehouse Warehouse { get; set; }
+    }
+}
